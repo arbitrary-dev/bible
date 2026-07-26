@@ -1,0 +1,7 @@
+bible-*.pdf
+
+*.aux
+*.log
+*.out
+
+*.swp
