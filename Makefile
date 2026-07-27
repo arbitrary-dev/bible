@@ -1,6 +1,6 @@
 .PHONY: all bible clean
 
-VERSION := 0.1
+VERSION := 0.1.1
 
 all: bible-$(VERSION).pdf bible-$(VERSION)b.pdf
 
@@ -14,10 +14,10 @@ all: bible-$(VERSION).pdf bible-$(VERSION)b.pdf
 	# Apparently fixed in pdfpages-0.6f.
 	pdfjam --nup 4x2 --outfile $@   \
 		--papersize '{210mm,297mm}' --landscape \
-		$< 16,1,14,3,12,5,10,7   \
-		$< 4,13,2,15,8,9,6,11     \
-		$< 32,17,30,19,28,21,26,23 \
-		$< 20,29,18,31,24,25,22,27
+		$< 32,01,30,03,28,05,26,07 \
+		$< 04,29,02,31,08,25,06,27 \
+		$< 24,09,22,11,20,13,18,15 \
+		$< 12,21,10,23,16,17,14,19
 
 	# Update versions for latest PDF downloads
 	sed -i -E "s/[0-9]+\.[0-9]+(\.[0-9]+|)/$(VERSION)/g" README.md
