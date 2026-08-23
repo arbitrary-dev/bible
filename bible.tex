@@ -74,13 +74,23 @@
 	\stepcounter{chapter}%
 	\stepcounter{stixos}%
 	\scalebox{1.5}{\cuKinovarColor#1}%
-	\marginpar{\huge\cuKinovar{\cuNum{\arabic{chapter}}.}}%
+	\marginpar{\cuKinovarColor\centering%
+		\vspace*{-1.8\baselineskip}%
+		\footnotesize Глⷡ҇а \\
+		\vspace*{-6pt}%
+		\huge\cuNum{\arabic{chapter}}.%
+	}%
 }
 \newcommand\Stt[1]{
 	\stepcounter{chapter}%
 	\stepcounter{stixos}%
 	\scalebox{1.5}{\cuKinovarColor#1}%
-	\marginpar{\hspace*{-2pt}\huge\cuKinovar{\cuNum{\arabic{chapter}}.}}%
+	\marginpar{\cuKinovarColor\centering%
+		\vspace*{-1.8\baselineskip}%
+		\hspace*{-2pt}\footnotesize Глⷡ҇а \\
+		\vspace*{-6pt}%
+		\hspace*{-2pt}\huge\cuNum{\arabic{chapter}}.%
+	}%
 }
 \newcommand\st[2][\relax]{%
 	\stepcounter{stixos}%
