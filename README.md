@@ -9,5 +9,6 @@ Type `make` to build.
 
 ## TODO
 
+- [x] Gospel of Matthew
 - [ ] New Testament
 - [ ] Psalter
