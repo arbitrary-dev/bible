@@ -1,4 +1,4 @@
-bible-*.pdf
+*.pdf
 
 *.aux
 *.log
