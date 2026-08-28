@@ -1,6 +1,6 @@
 .PHONY: all bible clean
 
-VERSION := 0.2
+VERSION := 0.2.1
 
 all: bible-$(VERSION).pdf bible-$(VERSION)b.pdf
 
