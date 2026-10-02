@@ -1,17 +1,24 @@
-.PHONY: all bible clean
+.PHONY: all bible booklet clean
 
-VERSION := 0.2.1
+VERSION := 0.3
 
-all: bible-$(VERSION).pdf bible-$(VERSION)b.pdf
+all: bible booklet
 
-%-$(VERSION).pdf: %.tex
-	lualatex --jobname=$(basename $@) "\def\Version{$(VERSION)} \input{$<}" \
-	&& rm -f $(basename $@).{log,aux,out}
+bible:   bible-$(VERSION).pdf
+booklet: bible-$(VERSION)b.pdf
+
+%-$(VERSION).pdf: %.tex *.tex
+	lualatex --jobname=$(basename $@) "\def\Version{$(VERSION)} \input{$<}"
 
 %b.pdf: %.pdf
+	PAGES=$$( awk -F'[ (]' '/Output written on/ {print $$6}' $*.log ); \
+	PAGES=$$(./gen-pages.sh $$PAGES);                                  \
 	pdfjam --nup 4x2 --outfile $@   \
 		--paper a4paper --landscape \
-		$< $(shell ./gen-pages.sh 64)
+		$< $$PAGES
 
 	# Update versions for latest PDF downloads
 	sed -i -E "s/[0-9]+\.[0-9]+(\.[0-9]+|)/$(VERSION)/g" README.md
+
+clean:
+	rm -f *.{aux,log,out} bible-*.pdf
