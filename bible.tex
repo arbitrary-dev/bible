@@ -77,7 +77,7 @@
 	\mbox{\cuKinovar{\{Заⷱ҇\,\}}}
 }
 
-\newcommand\psalm[2]{\vskip3pt{\small\mbox{#1}#2\par}}
+\newcommand\psalm[1]{\vskip3pt{\small#1\par}}
 
 \newcommand\Ps[1]{
 	\stepcounter{chapter}%
@@ -88,6 +88,18 @@
 		\footnotesize Ѱал. \\
 		\vspace*{-6pt}%
 		\huge\cuNum{\arabic{chapter}}.%
+	}%
+}
+
+\newcommand\Pss[1]{
+	\stepcounter{chapter}%
+	\stepcounter{stixos}%
+	\scalebox{1.5}{\cuKinovarColor#1}%
+	\marginpar{\cuKinovarColor\centering%
+		\vspace*{-1.8\baselineskip}%
+		\hspace*{-1pt}\footnotesize Ѱал. \\
+		\vspace*{-6pt}%
+		\hspace*{-2pt}\huge\cuNum{\arabic{chapter}}.%
 	}%
 }
 
