@@ -10,8 +10,10 @@ bible:   bible-$(VERSION).pdf
 booklet: bible-$(VERSION)b.pdf
 
 %-$(VERSION).pdf: %.tex *.tex
-	mkdir -p $(BUILD_DIR)
-	lualatex --output-directory=$(BUILD_DIR) --jobname=$(basename $@) "\def\Version{$(VERSION)} \input{$<}"
+	mkdir -p $(BUILD_DIR) \
+	&& lualatex --output-directory=$(BUILD_DIR) --jobname=$(basename $@) \
+		"\def\Version{$(VERSION)} \input{$<}" \
+	&& rm $(BUILD_DIR)/*.{aux,log,out}
 
 %b.pdf: %.pdf
 	mkdir -p $(BUILD_DIR)  \
