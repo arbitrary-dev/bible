@@ -11,6 +11,6 @@ Type `make` to build.
 ## TODO
 
 - [x] Gospel of Matthew
-- [ ] Gospel of Mark
+- [x] Gospel of Mark
 - [ ] &hellip; rest of The New Testament
 - [ ] Psalter

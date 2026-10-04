@@ -3,7 +3,7 @@
 MAX=$1
 
 # Signature should be even!
-SIGN=32
+SIGN=${2:-32}
 
 declare -a A
 declare -a B
