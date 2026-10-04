@@ -6,24 +6,22 @@ all: bible booklet
 
 .PHONY: all bible booklet clean
 
-bible: bible-$(VERSION).pdf
-
-bible-$(VERSION).pdf: bible.tex *.tex
+bible: bible.tex *.tex
 	mkdir -p $(BUILD_DIR)  \
-	&& lualatex --output-directory=$(BUILD_DIR) --jobname=$(basename $@)  \
+	&& lualatex --output-directory=$(BUILD_DIR) --jobname=$@-$(VERSION)  \
 		"\def\Version{$(VERSION)} \input{$<}"
 
-booklet: bible-$(VERSION).pdf
+booklet: bible
 	mkdir -p $(BUILD_DIR)  \
 	&& cd $(BUILD_DIR)     \
 	&& PAGES=$$( awk -F'[ (]' '/Output written on/ {print $$6}' bible-$(VERSION).log )  \
 	&& PAGES=$$(../gen-pages.sh $$PAGES)                                                \
 	&& pdfjam --nup 4x2 --outfile $@-$(VERSION).pdf  \
 		--paper a4paper --landscape                  \
-		$< $$PAGES                                   \
+		bible-$(VERSION).pdf $$PAGES                 \
 	&& rm -f *.{aux,log,out}
 
-mark: bible-$(VERSION).pdf
+mark: bible
 	mkdir -p $(BUILD_DIR)  \
 	&& cd $(BUILD_DIR)     \
 	&& pdfjam --papersize 7.425cm,10.5cm --no-landscape  \
