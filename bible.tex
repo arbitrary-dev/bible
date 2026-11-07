@@ -163,6 +163,40 @@
 		\hspace*{-3.5pt}\huge\cuNum{\arabic{chapter}}.%
 	}%
 }
+\newcommand\Stttttt[1]{
+	\stepcounter{chapter}%
+	\stepcounter{stixos}%
+	\scalebox{1.5}{\cuKinovarColor#1}%
+	\marginpar{\cuKinovarColor\centering%
+		\vspace*{-1.8\baselineskip}%
+		\hspace*{-3.5pt}\footnotesize Глⷡ҇а \\
+		\vspace*{-6pt}%
+		\hspace*{-3.5pt}\huge\cuNum{\arabic{chapter}}.%
+	}%
+}
+\newcommand\Sttttttt[1]{
+	\stepcounter{chapter}%
+	\stepcounter{stixos}%
+	\scalebox{1.5}{\cuKinovarColor#1}%
+	\marginpar{\cuKinovarColor\centering%
+		\vspace*{-1.8\baselineskip}%
+		\hspace*{-4pt}\footnotesize Глⷡ҇а \\
+		\vspace*{-6pt}%
+		\hspace*{-4pt}\huge\cuNum{\arabic{chapter}}.%
+	}%
+}
+\newcommand\StKsOdd[1]{
+	\stepcounter{chapter}%
+	\stepcounter{stixos}%
+	\scalebox{1.5}{\cuKinovarColor#1}%
+	\marginpar{\cuKinovarColor\centering%
+		\vspace*{-1.75\baselineskip}%
+		\hspace*{-3.5pt}\footnotesize Глⷡ҇а \\
+		\vspace*{1pt}%
+		\hspace*{-3.5pt}\scalebox{0.9}{\huge\cuNum{\arabic{chapter}}.}%
+	}%
+}
+
 \iffalse  % TODO: Chapter + section?
 	\stepcounter{chapter}%
 	\stepcounter{stixos}%
@@ -177,6 +211,7 @@
 	}%
 }
 \fi
+
 % TODO: Align to the right for even pages.
 \newcommand\st[2][\relax]{%
 	\stepcounter{stixos}%
@@ -234,6 +269,12 @@
 \newfontfamily\churchslavonicfont[Script=Cyrillic,Ligatures=TeX,HyphenChar=_]{Triodion} % PonomarUnicode.otf
 \newfontfamily\cyrillicfontsf{DejaVu Sans}
 \newfontfamily\noto{Noto Sans Symbols 2}
+
+\newcommand\added[1]{{\itshape\small%
+	\fontspec{Old Standard}%
+	#1%
+}}
+\newcommand\addded[1]{\added{#1}\hspace{.3pt}}
 
 %\hyphenpenalty=10000
 \setlength\emergencystretch{4em}
