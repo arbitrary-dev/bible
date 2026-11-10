@@ -12,5 +12,6 @@ Type `make` to build.
 
 - [x] Gospel of Matthew
 - [x] Gospel of Mark ([booklet](https://github.com/arbitrary-dev/bible/releases/download/v0.3/mark-0.3b.pdf))
+- [ ] Gospel of Luke
 - [ ] &hellip; rest of The New Testament
 - [ ] Psalter (12 psalms out of 151)
